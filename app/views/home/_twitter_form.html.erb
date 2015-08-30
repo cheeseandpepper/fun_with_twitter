@@ -1,0 +1,5 @@
+<%= form_tag('/tweet_data', method: 'get', class: 'tweetGetter', remote: true) do %>
+  <%= label_tag(:handle, 'Handle:') %>
+  <%= text_field_tag(:handle) %>
+  <%= submit_tag('Find Tweets!', class: 'tweetButton') %>
+<% end %>

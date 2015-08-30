@@ -1,0 +1,14 @@
+<div class='tweetData'>
+  <table>
+    <tr>
+      <th>Handle</th>
+      <th>Tweet</th>
+    </tr>
+    <% @tweets.each do |tweet| %>
+      <tr>
+        <td>@<%= tweet.user.screen_name %></td>
+        <td><%= apply_text_modifications_for!(tweet.text) %></td>
+      </tr>
+    <% end %>      
+  </table>
+</div>
