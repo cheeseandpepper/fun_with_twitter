@@ -1,6 +1,5 @@
 class HomeController < ApplicationController
-  include HomeHelper
-
+  
   before_filter :authenticate_sign_in!
   before_filter :get_tweet_cache_object
  
