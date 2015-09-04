@@ -12,7 +12,6 @@ describe TweetObjectParser do
       
       allow(mock_user_object).to receive(:screen_name      ) { 'justinbieber' }
       allow(mock_user_object).to receive(:profile_image_url) { 'http://pbs.twimg.com/profile_images/637229465152581632/rHZ0lrIJ_normal.jpg' }
-      allow(mock_user_object).to receive(:screen_name      ) { 'justinbieber' }
       
       allow(mock_object).to receive(:id                    ) { 639921861241864193 }
       allow(mock_object).to receive(:text                  ) { "@billboard that's because they are the best. Stuck with me. Love my #beliebers" }
