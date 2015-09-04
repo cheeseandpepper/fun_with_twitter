@@ -10,7 +10,7 @@ var TwitterForm = React.createClass({
       url: '/tweet_data',
       dataType: 'json',
       cache: false,
-      data: { handle: $('.twitterForm input').val() || "stackcommerce" },
+      data: { handle: $('.twitterForm input').val() || "twitter" },
       success: function(data) {
         this.setState({ data: data });
         $('.twitterForm').find('input:text').val('')
@@ -28,7 +28,7 @@ var TwitterForm = React.createClass({
       url: '/tweet_data',
       dataType: 'json',
       cache: false,
-      data: { handle: $('.twitterForm input').val() || "stackcommerce" },
+      data: { handle: $('.twitterForm input').val() || "twitter" },
       success: function(data) {
         if (this.isMounted()) {
           this.setState({data: data})
