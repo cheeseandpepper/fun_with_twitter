@@ -22,15 +22,22 @@ RSpec.describe HomeController, type: :controller do
   end
 
   describe "POST tweets" do
-    it "hits the twitter api" do
-      expect(TWITTER_CLIENT).to receive(:user_timeline).with("themetalcoder", {:count=>25})
-      post :tweets, handle: 'themetalcoder'
+    
+    context "with cached data present" do
+      it "fetches the cache data if available" do
+        memoized_cache_object = TweetCacheWrapper.new(expires_in: 5.minutes)
+        memoized_cache_object.data.write("themetalcoder", tweet_stuff: { tweet1: "hey gang!" })
+        
+        expect(TweetCacheWrapper).to receive(:new).with(expires_in: 5.minutes)
+        post :tweet_data, handle: 'themetalcoder'
+      end
     end
-
-    it "shows the @handle" do
-    end
-
-    it "shows the tweet message" do
+    
+    context "without cached data present" do
+      it "hits the twitter api if there's no cached data" do
+        expect(TWITTER_CLIENT).to receive(:user_timeline).with("themetalcoder", {:count=>25})
+        post :tweet_data, handle: 'themetalcoder'
+      end
     end
 
   end

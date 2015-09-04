@@ -1,11 +1,4 @@
-<h2>Hello Stack Commerce!</h2>
+<%= react_component 'TopNav', { current_user: @current_user } %>
 
-<p>My name is Mike Lerner and here's the project you asked for!  It's super bare bones and with more time, sky's the limit!</p>
+<%= react_component 'TweetContainer', { data: @tweets } %>
 
-<%= render 'twitter_form' %>
-
-<%= render 'tweet_data' %>
-
-<script>
-  TweetData.getTweets();
-</script>
