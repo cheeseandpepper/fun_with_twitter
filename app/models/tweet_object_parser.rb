@@ -11,10 +11,13 @@ class TweetObjectParser
     linkified_text  = linkify_links_for!(tweet_object.text)
     at_mention_text = parse_at_mention_for!(linkified_text)
     
-    object[:text       ] = at_mention_text.html_safe
-    object[:screen_name] = tweet_object.user.screen_name
-    object[:image_url  ] = tweet_object.user.profile_image_url.to_s
-    object[:id         ] = tweet_object.id
+    object[:text           ] = at_mention_text.html_safe
+    object[:screen_name    ] = tweet_object.user.screen_name
+    object[:image_url      ] = tweet_object.user.profile_image_url_https.to_s
+    object[:followers_count] = tweet_object.user.followers_count
+    object[:id             ] = tweet_object.id
+    object[:favorite_count ] = tweet_object.favorite_count
+    object[:retweet_count  ] = tweet_object.retweet_count
     object
   end
 

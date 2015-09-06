@@ -56,7 +56,7 @@ var TwitterForm = React.createClass({
           <input type="text" placeholder="enter a handle" ref="handle" />
           <input type="submit" value="Get Tweets!" />
         </form>
-        <TweetTable data={currentData} />
+        <TweetList data={currentData} />
       </div>
     );
   } 

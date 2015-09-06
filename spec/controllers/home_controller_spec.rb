@@ -45,8 +45,11 @@ RSpec.describe HomeController, type: :controller do
         allow(fake_tweet).to receive(:text).and_return("text")
         allow(fake_tweet).to receive(:id).and_return(12345)
         allow(fake_tweet).to receive(:user).and_return(fake_user)
+        allow(fake_tweet).to receive(:favorite_count).and_return(123)
+        allow(fake_tweet).to receive(:retweet_count).and_return(123)
         allow(fake_user).to receive(:screen_name).and_return("potus")
-        allow(fake_user).to receive(:profile_image_url).and_return("http://www.image.url")
+        allow(fake_user).to receive(:followers_count).and_return(123)
+        allow(fake_user).to receive(:profile_image_url_https).and_return("https://www.image.url")
         allow(TWITTER_CLIENT).to receive(:user_timeline).and_return([fake_tweet, fake_tweet])
         post :tweet_data, handle: 'potus'
         expect(controller.instance_variable_get(:@cached_responses).data.fetch('potus')).to be_a_kind_of(Array)

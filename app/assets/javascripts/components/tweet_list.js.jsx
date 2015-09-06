@@ -1,4 +1,4 @@
-var TweetTable = React.createClass({
+var TweetList = React.createClass({
   
   render: function() {
     var tweetSectionStyle = {
@@ -18,9 +18,16 @@ var TweetTable = React.createClass({
       var tweetNodes = <span dangerouslySetInnerHTML={{__html: this.props.data.html}}></span>;
     } else {
       var tweetNodes = this.props.data.map(function (tweet) {
+      favoriteCount = Intl.NumberFormat().format(tweet.data.favorite_count)
+      retweetCount = Intl.NumberFormat().format(tweet.data.retweet_count)
         return (
           <div key={tweet.data.id} style={tweetStyle}>
             <span dangerouslySetInnerHTML={{__html: tweet.data.text}}></span>
+            <br />
+            
+            <span><Icon icon='favorite'/>{favoriteCount}</span>
+            <br />
+            <span><Icon icon='retweet'/>{retweetCount}</span>
           </div>
         );
       });
