@@ -3,7 +3,7 @@ var ProfileArea = React.createClass({
     if (this.props.data[0]) {
       var imageUrl = this.props.data[0].data.image_url
       var screenName = this.props.data[0].data.screen_name
-      var followersCount = Intl.NumberFormat().format(this.props.data[0].data.followers_count) + " followers"
+      var followersCount = Utility.addCommasToNumbers(this.props.data[0].data.followers_count) + " followers"
     } else {
       var imageUrl = ""
       var screenName = ""

@@ -18,8 +18,8 @@ var TweetList = React.createClass({
       var tweetNodes = <span dangerouslySetInnerHTML={{__html: this.props.data.html}}></span>;
     } else {
       var tweetNodes = this.props.data.map(function (tweet) {
-      favoriteCount = Intl.NumberFormat().format(tweet.data.favorite_count)
-      retweetCount = Intl.NumberFormat().format(tweet.data.retweet_count)
+      favoriteCount = Utility.addCommasToNumbers(tweet.data.favorite_count)
+      retweetCount = Utility.addCommasToNumbers(tweet.data.retweet_count)
         return (
           <div key={tweet.data.id} style={tweetStyle}>
             <span dangerouslySetInnerHTML={{__html: tweet.data.text}}></span>
