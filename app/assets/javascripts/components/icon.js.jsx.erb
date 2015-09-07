@@ -8,7 +8,7 @@ var Icon = React.createClass({
             width: '16px',
             height: '16px',
             display: 'inline',
-            background: "url('assets/favorite.png')",
+            background: "url(<%= image_path('favorite.png') %>)",
             backgroundRepeat: 'no-repeat',
             paddingRight: '16px',
             paddingLeft: '16px'
@@ -17,7 +17,7 @@ var Icon = React.createClass({
       case 'retweet':
         return (
           {
-            background: 'url(assets/retweet.png)',
+            background: "url(<%= image_path('retweet.png') %>)",
             width: '16px',
             height: '16px',
             backgroundRepeat: 'no-repeat',
